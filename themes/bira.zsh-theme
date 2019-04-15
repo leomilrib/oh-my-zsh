@@ -16,6 +16,8 @@ if which rvm-prompt &> /dev/null; then
   ruby_version='%{$fg[red]%}‹$(rvm-prompt i v g)›%{$reset_color%}'
 elif which rbenv &> /dev/null; then
   ruby_version='%{$fg[red]%}‹$(rbenv version | sed -e "s/ (set.*$//")›%{$reset_color%}'
+elif which asdf &> /dev/null; then
+  ruby_version='%{$fg[red]%}‹$(asdf current ruby | sed -e "s/ .*(set.*$//")›%{$reset_color%}'
 fi
 local git_branch='$(git_prompt_info)%{$reset_color%}'
 local venv_prompt='$(virtualenv_prompt_info)%{$reset_color%}'
